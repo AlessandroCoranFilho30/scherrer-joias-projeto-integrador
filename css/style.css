@@ -1,0 +1,71 @@
+body {
+    font-family: 'Italianno', cursive, Verdana;
+    background-color: rgb(223, 223, 223);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    height: 80px;
+    display: flex;
+    background-color: rgb(238, 238, 248);
+    border-bottom: 1px solid rgb(158, 158, 158);
+}
+
+input {
+    width: 20%;
+    height: 35px;
+    border-radius: 5px;
+    border: 1px solid rgb(119, 119, 119);
+    background: no-repeat center/80% url("../img/search.svg");
+    background-position: right center;
+    background-size: 20px 20px;
+    padding-left: 10px;
+}
+
+.menu {
+    display: flex;
+    background-color: rgb(211, 221, 223);
+    border-bottom: 1px solid rgb(158, 158, 158);
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.pesquisa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.pesquisa img {
+    width: 30px;
+    height: 30px;
+}
+
+.logo {
+    height: 90px;
+    width: 90px;
+}
+
+li {
+    font-weight: 500;
+    font-size: 30px;
+    border-radius: 2px;
+}
+
+li:hover {
+    cursor: pointer;
+    color: rgb(20, 10, 158);
+}
+
+.menu ul {
+    display: flex;
+    list-style: none;
+    gap: 50px;
+    justify-content: center;
+    align-items: center;
+}
