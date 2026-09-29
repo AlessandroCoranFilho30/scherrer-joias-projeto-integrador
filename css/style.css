@@ -130,3 +130,49 @@ a {
     color: rgb(8, 16, 24);
     margin-bottom: 10px;
 }
+
+/* CSS leo */
+
+main {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    justify-content: center;
+}
+.banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px auto;
+    width: 100%;
+    gap: 20px;
+}
+.banner img {
+    max-width: 100%;
+}
+.imagembanner {
+    border: 1px solid burlywood;
+    border-radius: 10px;
+}
+.destaque {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.destaque h1 {
+    font-weight: bold;
+}
+.destaque p {
+    font-size: small;
+}
+.containerdestaque {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    margin: 20px;
+}
+.destaquecards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
