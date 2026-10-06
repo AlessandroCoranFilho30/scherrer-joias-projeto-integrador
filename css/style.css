@@ -139,6 +139,7 @@ main {
     background-color: white;
     justify-content: center;
 }
+
 .banner {
     display: flex;
     justify-content: center;
@@ -147,32 +148,123 @@ main {
     width: 100%;
     gap: 20px;
 }
+
 .banner img {
     max-width: 100%;
 }
-.imagembanner {
+
+.imagem-banner {
     border: 1px solid burlywood;
     border-radius: 10px;
 }
+
 .destaque {
     display: flex;
     flex-direction: column;
     text-align: center;
 }
+
 .destaque h1 {
     font-weight: bold;
 }
+
 .destaque p {
     font-size: small;
 }
-.containerdestaque {
+
+.container-destaque {
     display: flex;
     gap: 40px;
     justify-content: center;
     margin: 20px;
 }
-.destaquecards {
+
+.destaque-cards {
     display: flex;
     flex-direction: column;
     gap: 20px;
+}
+
+/* CSS do Matheus*/
+
+.produtos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    gap: 20px;
+    padding: 40px;
+}
+
+.card {
+    position: relative;
+    width: 270px;
+    height: 375px;
+    border: 1px solid #cccccc;
+    padding: 0;
+    text-align: center;
+}
+
+
+.card img {
+    width: 99.5%;
+    height: 190px;
+    border: 0.2px solid #cccccc;
+    vertical-align: auto;
+}
+
+.rs {
+    font-weight: bold;
+}
+
+
+.t {
+    font-size: 18px;
+}
+
+
+.s {
+    font-size: 16px;
+}
+
+
+.s,
+.p {
+    text-align: left;
+    margin-left: 15px;
+}
+
+
+.p {
+    font-family: none;
+    font-size: 12px;
+    color: #71717a;
+    margin-top: 35px;
+}
+
+
+.btn {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
+    background-color: #ee8207;
+    color: black;
+    border: 1px solid black;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.5s ease-in;
+}
+
+button:hover {
+    background-color: #dd9222;
+}
+
+button:active {
+    transform: translateY(1px);
 }
