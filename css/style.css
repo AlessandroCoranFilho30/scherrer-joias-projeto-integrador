@@ -185,6 +185,15 @@ main {
     gap: 20px;
 }
 
+.imagens {
+    display: flex;
+    justify-content: center;
+    max-width: 900px;
+    gap: 40px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
 /* CSS do Matheus*/
 
 .produtos {
@@ -268,3 +277,4 @@ button:hover {
 button:active {
     transform: translateY(1px);
 }
+
