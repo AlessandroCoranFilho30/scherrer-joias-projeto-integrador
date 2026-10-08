@@ -13,10 +13,10 @@ body {
 }
 
 .montserrat {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 100;
-  font-style: normal;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 100;
+    font-style: normal;
 }
 
 header {
@@ -92,28 +92,15 @@ footer {
     height: 250px;
 }
 
-.formas-pagamento {
+.cards {
     display: flex;
-    justify-content: left;
+    justify-content: space-between;
     align-items: center;
     gap: 20px;
     margin-bottom: 20px;
 }
 
-.selos-seguranca {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 20px;
-}
-
-div.formas-pagamento img {
-    height: 50px;
-    width: auto;
-}
-
-div.selos-seguranca img {
+div.cards img {
     height: 50px;
     width: auto;
 }
@@ -134,19 +121,19 @@ a {
     color: rgb(8, 16, 24);
 }
 
-.pagamento {
-    text-align: left;
-    color: rgb(8, 16, 24);
+.text {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
     margin-bottom: 10px;
 }
 
-.seguranca {
-    text-align: right;
+.txt {
+    display: inline-block;
+    text-align: space-between;
     color: rgb(8, 16, 24);
     margin-bottom: 10px;
 }
-
-/* CSS leo */
 
 main {
     display: flex;
@@ -189,8 +176,8 @@ main {
 
 .container-destaque {
     display: flex;
-    gap: 50px;
-    justify-content: center;
+    gap: 40px;
+    justify-content: space-evenly;
     margin-top: 30px;
 }
 
@@ -201,25 +188,22 @@ main {
 
 .destaque-cards img {
     width: 100%;
-    height: 100%;
+    height: 100%
 }
 
 .imagens {
     display: flex;
     justify-content: center;
+    max-width: 900px;
     gap: 40px;
-    width: 100%;
     margin: 30px auto;
     padding: 20px;
 }
-
-/* CSS do Matheus*/
 
 .produtos {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-
     gap: 20px;
     padding: 40px;
 }
@@ -233,7 +217,6 @@ main {
     text-align: center;
 }
 
-
 .card img {
     width: 99.5%;
     height: 190px;
@@ -241,20 +224,21 @@ main {
     vertical-align: auto;
 }
 
+div.security img {
+    border-radius: 50%;
+}
+
 .rs {
     font-weight: bold;
 }
-
 
 .t {
     font-size: 18px;
 }
 
-
 .s {
     font-size: 16px;
 }
-
 
 .s,
 .p {
@@ -269,7 +253,6 @@ main {
     color: #71717a;
     margin-top: 35px;
 }
-
 
 .btn {
     position: absolute;
