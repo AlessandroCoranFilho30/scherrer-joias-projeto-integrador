@@ -12,6 +12,13 @@ body {
     padding: 0;
 }
 
+:root {
+    --cor-principal:rgb(223, 223, 223);
+    --cor-secundaria:#E2B791;
+    --cor-terciária:#f5dab7;
+    --fonte-padrão: "Montserrat", sans-serif;
+}
+
 .montserrat {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
