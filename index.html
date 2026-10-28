@@ -9,19 +9,18 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     <header>
-        <img class="logo" src="img/logo.png" alt="logo">
+        <img class="logo" src="img/logo.png" alt="Scherrer Joias logo" width="90" height="90">
         <div class="pesquisa">
-            <input type="search" placeholder="Pesquisar">
+            <input type="search" placeholder="Pesquisar" aria-label="Pesquisar produtos">
         </div>
 
-        <img src="img/profile.svg" alt="profile">
-        <img src="img/bag.svg" alt="bag">
+        <img src="img/profile.svg" alt="Perfil do usuário" width="32" height="32">
+        <img src="img/bag.svg" alt="Carrinho de compras" width="32" height="32">
     </header>
 
     <div class="menu">
@@ -34,12 +33,13 @@
     </div>
 
     <main>
-        <div class="banner">
-            <img src="img/chevron-left.png" height="20%">
+        <div class="banner" aria-label="Banner principal">
+            <img src="img/chevron-left.png" alt="Anterior" height="32" width="32">
             <div class="imagembanner">
-                <img src="img/banner.png" alt="banner">
+                <img src="img/banner.png" alt="Banner promocional de joias" width="1200" height="540"
+                    fetchpriority="high">
             </div>
-            <img src="img/chevron-right.png" height="20%">
+            <img src="img/chevron-right.png" alt="Próximo" height="32" width="32">
         </div>
 
 
@@ -49,31 +49,31 @@
 
             <div class="container-destaque">
                 <div class="destaque-cards">
-                    <img src="img/brinco.jpg" alt="Brincos">
+                    <img src="img/brinco.jpg" alt="Brincos" width="250" height="250">
                     <h2>Brinco</h2>
                 </div>
 
                 <div class="destaque-cards">
-                    <img src="img/anel.jpg" alt="Aneis">
+                    <img src="img/anel.jpg" alt="Aneis" width="250" height="250">
                     <h2>Aneís</h2>
                 </div>
 
                 <div class="destaque-cards">
-                    <img src="img/pulseira.jpg" alt="Pulseiras">
+                    <img src="img/pulseira.jpg" alt="Pulseiras" width="250" height="250">
                     <h2>Pulseiras</h2>
                 </div>
 
                 <div class="destaque-cards">
-                    <img src="img/Chocker.jpg" alt="Chockers">
+                    <img src="img/Chocker.jpg" alt="Chockers" width="250" height="250">
                     <h2>Chokers</h2>
                 </div>
             </div>
         </div>
 
-        <div class="imagens">
-            <img src="img/ImagemModelos1.png">
-            <img src="img/ImagemModelos2.png">
-            <img src="img/ImagemModelos3.png">
+        <div class="imagens" aria-label="Galeria de modelos">
+            <img src="img/ImagemModelos1.png" alt="Modelo com joias" width="360" height="480">
+            <img src="img/ImagemModelos2.png" alt="Coleção de joias" width="360" height="480">
+            <img src="img/ImagemModelos3.png" alt="Acessórios em destaque" width="360" height="480">
         </div>
 
         <div class="mais-vendidos">
@@ -81,7 +81,7 @@
             <p>Os Produtos mais procurados</p>
             <div class="mais-vendidos-container">
                 <div class="mais-vendidos-cards">
-                    <img src="img/Pulseira1.png">
+                    <img src="img/Pulseira1.png" alt="Pulseira dourada Elos Royale" width="300" height="300">
                     <hr>
                     <br>
                     <p>Pulseira Dourada Elos Royale</p>
@@ -90,7 +90,7 @@
 
 
                 <div class="mais-vendidos-cards">
-                    <img src="img/Pulseira1.png">
+                    <img src="img/Pulseira1.png" alt="Pulseira dourada Elos Royale" width="300" height="300">
                     <hr>
                     <br>
                     <p>Pulseira Dourada Elos Royale</p>
@@ -99,7 +99,7 @@
 
 
                 <div class="mais-vendidos-cards">
-                    <img src="img/Pulseira1.png">
+                    <img src="img/Pulseira1.png" alt="Pulseira dourada Elos Royale" width="300" height="300">
                     <hr>
                     <br>
                     <p>Pulseira Dourada Elos Royale</p>
@@ -108,7 +108,7 @@
 
 
                 <div class="mais-vendidos-cards">
-                    <img src="img/Pulseira1.png">
+                    <img src="img/Pulseira1.png" alt="Pulseira dourada Elos Royale" width="300" height="300">
                     <hr>
                     <br>
                     <p>Pulseira Dourada Elos Royale</p>
@@ -117,7 +117,7 @@
 
 
                 <div class="mais-vendidos-cards">
-                    <img src="img/Pulseira1.png">
+                    <img src="img/Pulseira1.png" alt="Pulseira dourada Elos Royale" width="300" height="300">
                     <hr>
                     <br>
                     <p>Pulseira Dourada Elos Royale</p>
@@ -127,10 +127,10 @@
         </div>
 
 
-        <div class="imagens">
-            <img src="img/ImagemModelos4.png">
-            <img src="img/ImagemModelos5.png">
-            <img src="img/ImagemModelos6.png">
+        <div class="imagens" aria-label="Mais modelos da coleção">
+            <img src="img/ImagemModelos4.png" alt="Modelo em destaque 4" width="360" height="480">
+            <img src="img/ImagemModelos5.png" alt="Modelo em destaque 5" width="360" height="480">
+            <img src="img/ImagemModelos6.png" alt="Modelo em destaque 6" width="360" height="480">
         </div>
 
 
@@ -139,7 +139,7 @@
             <p>As Melhores Ofertas para você</p>
             <div class="mais-vendidos-container">
                 <div class="mais-vendidos-cards">
-                    <img src="img/BraceletePromo.png">
+                    <img src="img/BraceletePromo.png" alt="Bracelete fino de prata" width="300" height="300">
                     <hr>
                     <br>
                     <p>Bracelete Fino de Prata</p>
@@ -148,7 +148,7 @@
 
 
                 <div class="mais-vendidos-cards">
-                    <img src="img/BraceletePromo.png">
+                    <img src="img/BraceletePromo.png" alt="Bracelete fino de prata" width="300" height="300">
                     <hr>
                     <br>
                     <p>Bracelete Fino de Prata</p>
@@ -157,7 +157,7 @@
 
 
                 <div class="mais-vendidos-cards">
-                    <img src="img/BraceletePromo.png">
+                    <img src="img/BraceletePromo.png" alt="Bracelete fino de prata" width="300" height="300">
                     <hr>
                     <br>
                     <p>Bracelete Fino de Prata</p>
@@ -166,7 +166,7 @@
 
 
                 <div class="mais-vendidos-cards">
-                    <img src="img/BraceletePromo.png">
+                    <img src="img/BraceletePromo.png" alt="Bracelete fino de prata" width="300" height="300">
                     <hr>
                     <br>
                     <p>Bracelete Fino de Prata</p>
@@ -175,7 +175,7 @@
 
 
                 <div class="mais-vendidos-cards">
-                    <img src="img/BraceletePromo.png">
+                    <img src="img/BraceletePromo.png" alt="Bracelete fino de prata" width="300" height="300">
                     <hr>
                     <br>
                     <p>Bracelete Fino de Prata</p>
@@ -194,15 +194,15 @@
         </div>
         <div class="cards">
             <div class="pay">
-                <img src="img/visa.png" alt="visa">
-                <img src="img/mastercard.svg" alt="mastercard">
-                <img src="img/elo.png" alt="elo">
-                <img src="img/pix.webp" alt="pix">
+                <img src="img/visa.png" alt="Visa" width="60" height="40">
+                <img src="img/mastercard.svg" alt="Mastercard" width="60" height="40">
+                <img src="img/elo.png" alt="Elo" width="60" height="40">
+                <img src="img/pix.webp" alt="Pix" width="60" height="40">
             </div>
             <div class="security">
-                <img src="img/reclameaqui.jpg" alt="reclame aqui">
-                <img src="img/alphassl.jpg" alt="alphassl">
-                <img src="img/google.jpg" alt="google">
+                <img src="img/reclameaqui.jpg" alt="Reclame Aqui" width="60" height="60">
+                <img src="img/alphassl.jpg" alt="Alpha SSL" width="60" height="60">
+                <img src="img/google.jpg" alt="Google" width="60" height="60">
             </div>
         </div>
     </footer>
