@@ -118,6 +118,7 @@ main {
     text-align: center;
     width: min(100%, 1200px);
     margin: 0 auto;
+    margin-bottom: 30px;
     padding: 0 20px;
 }
 
