@@ -3,7 +3,7 @@
 ## Integrantes do grupo
 
 - Alessandro Coran Filho
-- Leonardo Sherrer.
+- Leonardo Sherrer
 - Caio Diodato
 - Matheus de Jesus Souza
 - Mateus Ferreira
