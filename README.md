@@ -3,7 +3,7 @@
 ## Integrantes do grupo
 
 - Alessandro Coran Filho
-- Leonardo Sherrer.
+- Leonardo Sherrer
 - Caio Diodato
 - Matheus de Jesus Souza
 - Mateus Ferreira
@@ -36,3 +36,4 @@ Página fictícia da Scherrer joias, uma empresa comerciante de jóias em Limeir
 - Adição de itens ao carrinho,
 - Busca de itens
 - Histórico de compras
+- Opções de cadastro e login
