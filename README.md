@@ -22,18 +22,18 @@ Página fictícia da Scherrer joias, uma empresa comerciante de jóias em Limeir
 
 - imagens,
 - botões,
-- cabeçalho
+- cabeçalho.
 
 ## CSS
 
 - Flexbox,
 - Box Model,
 - Tabelas,
-- Estilização
+- Estilização.
 
 ## PHP
 
 - Adição de itens ao carrinho,
-- Busca de itens
-- Histórico de compras
-- Opções de cadastro e login
+- Busca de itens,
+- Histórico de compras,
+- Opções de cadastro e login.
