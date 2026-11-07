@@ -16,7 +16,7 @@
 
 **Grupo da matéria de Projeto Integrador II, Fatec Americana.**
 
-Página fictícia da Scherrer joias, uma empresa comerciante de jóias em Limeira, página criada para fins educativos durante as aulas de Projeto integrador II no segundo semestre do curso de Análise e Desenvolvimento de Sistemas da Fatec Americana. Site construído com HTML, CSS e PHP, utilizando os recursos aprendidos durante a aula de Desenvolvimento Web como:
+Página fictícia da Scherrer joias, uma empresa comerciante de jóias em Limeira, página criada para fins educativos durante as aulas de Projeto integrador II no segundo semestre do curso de Análise e Desenvolvimento de Sistemas da Fatec Americana. Site construído com HTML, CSS e PHP, utilizando os recursos aprendidos durante a aula de Desenvolvimento Web.
 
 ### Problema
  
