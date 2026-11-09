@@ -8,6 +8,22 @@ session_set_cookie_params([
 ]);
 session_start();
 
+const CATEGORIES = [
+    'aneis' => 'Anéis',
+    'brincos' => 'Brincos',
+    'pulseiras' => 'Pulseiras',
+    'chokers' => 'Colares e chokers',
+];
+
+// Hash fixo usado no login apenas para equalizar o tempo de resposta
+// quando o e-mail informado não existe, evitando enumeração de contas.
+const DUMMY_PASSWORD_HASH = '$2y$12$CSl80ZCYo4tRL7rc9OXWhOh/RHsxCp0niWPJwg3lZBxMDybJN3gXu';
+
+function categoryLabel(string $category): string
+{
+    return CATEGORIES[$category] ?? ucfirst($category);
+}
+
 function db(): PDO
 {
     static $connection;
@@ -121,6 +137,16 @@ function requestMethod(): string
 function money(int $cents): string
 {
     return 'R$ ' . number_format($cents / 100, 2, ',', '.');
+}
+
+function formatDateTime(string $sqliteTimestamp): string
+{
+    // CURRENT_TIMESTAMP do SQLite é gravado em UTC; converte para o horário de São Paulo.
+    $date = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', $sqliteTimestamp, new DateTimeZone('UTC'));
+    if ($date === false) {
+        return $sqliteTimestamp;
+    }
+    return $date->setTimezone(new DateTimeZone('America/Sao_Paulo'))->format('d/m/Y H:i');
 }
 
 function redirect(string $location): never

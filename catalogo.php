@@ -1,31 +1,26 @@
 <?php
 require __DIR__ . '/includes/app.php';
 
-$categoryLabels = [
-    'aneis' => 'Anéis',
-    'brincos' => 'Brincos',
-    'pulseiras' => 'Pulseiras',
-    'chokers' => 'Colares e chokers',
-];
 $category = $_GET['categoria'] ?? '';
 $category = is_string($category) ? $category : '';
 $searchInput = $_GET['busca'] ?? '';
 $search = is_string($searchInput) ? trim($searchInput) : '';
 $conditions = [];
 $parameters = [];
-if (is_string($category) && isset($categoryLabels[$category])) {
+if (isset(CATEGORIES[$category])) {
     $conditions[] = 'category = :category';
     $parameters[':category'] = $category;
 }
 if ($search !== '') {
-    $conditions[] = '(name LIKE :search OR description LIKE :search)';
-    $parameters[':search'] = '%' . $search . '%';
+    // Escapa curingas do LIKE para que a busca trate % e _ como texto comum.
+    $conditions[] = "(name LIKE :search ESCAPE '\\' OR description LIKE :search ESCAPE '\\')";
+    $parameters[':search'] = '%' . addcslashes($search, '\\%_') . '%';
 }
 $query = 'SELECT * FROM products' . ($conditions ? ' WHERE ' . implode(' AND ', $conditions) : '') . ' ORDER BY name';
 $statement = db()->prepare($query);
 $statement->execute($parameters);
 $products = $statement->fetchAll();
-$title = isset($categoryLabels[$category]) ? $categoryLabels[$category] : 'Catálogo';
+$title = isset(CATEGORIES[$category]) ? CATEGORIES[$category] : 'Catálogo';
 
 renderHeader($title);
 ?>
@@ -35,7 +30,7 @@ renderHeader($title);
     </div>
     <div class="category-filters">
         <a href="catalogo.php">Todas</a>
-        <?php foreach ($categoryLabels as $slug => $label): ?>
+        <?php foreach (CATEGORIES as $slug => $label): ?>
             <a href="catalogo.php?categoria=<?= e($slug) ?>"><?= e($label) ?></a>
         <?php endforeach; ?>
     </div>

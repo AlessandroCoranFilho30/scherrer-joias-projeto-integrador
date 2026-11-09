@@ -78,6 +78,8 @@ button, .button { cursor: pointer; }
 .empty-state { margin: 20px 0; background: var(--sand-light); }
 .disclaimer { background: var(--sand-light); color: var(--muted); font-size: .9rem; }
 .link-button { padding: 0; border: 0; color: #574333; background: transparent; text-decoration: underline; }
+.stock-note { margin: 4px 0; color: var(--muted); }
+.badge-out { color: #8a1f11; font-weight: 700; }
 .site-footer { padding: 28px max(5vw, 20px); background: var(--sand-light); text-align: center; color: var(--muted); font-size: .9rem; }
 .footer-badges { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto 24px; }
 .footer-badges h2 { margin: 0 0 12px; color: var(--ink); font-size: .85rem; font-weight: 600; }

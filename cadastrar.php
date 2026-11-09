@@ -21,6 +21,8 @@ if (requestMethod() === 'POST') {
         $error = 'Informe um e-mail válido.';
     } elseif (strlen($password) < 8) {
         $error = 'A senha deve ter pelo menos 8 caracteres.';
+    } elseif (strlen($password) > 100) {
+        $error = 'A senha deve ter no máximo 100 caracteres.';
     } elseif ($password !== $confirmation) {
         $error = 'As senhas não conferem.';
     } else {

@@ -41,6 +41,9 @@ if (requestMethod() === 'POST') {
                 'INSERT INTO order_items (order_id, product_id, product_name, unit_price_cents, quantity)
                  VALUES (:order_id, :product_id, :name, :price, :quantity)'
             );
+            $updateStock = $connection->prepare(
+                'UPDATE products SET stock = stock - :quantity WHERE id = :id AND stock >= :quantity'
+            );
             foreach ($items as $item) {
                 $insertItem->execute([
                     ':order_id' => $orderId,
@@ -49,6 +52,15 @@ if (requestMethod() === 'POST') {
                     ':price' => $item['price_cents'],
                     ':quantity' => $item['quantity'],
                 ]);
+                $updateStock->execute([':quantity' => $item['quantity'], ':id' => $item['id']]);
+                if ($updateStock->rowCount() === 0) {
+                    if ($connection->inTransaction()) {
+                        $connection->rollBack();
+                    }
+                    $_SESSION['flash'] = 'Estoque insuficiente para "' . $item['name']
+                        . '". Atualize a quantidade no carrinho.';
+                    redirect('carrinho.php');
+                }
             }
             $delete = $connection->prepare('DELETE FROM cart_items WHERE user_id = :user_id');
             $delete->execute([':user_id' => $userId]);

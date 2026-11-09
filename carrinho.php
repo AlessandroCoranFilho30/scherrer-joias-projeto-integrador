@@ -16,6 +16,16 @@ if (requestMethod() === 'POST') {
             $_SESSION['flash'] = 'A quantidade deve estar entre 1 e 20.';
             redirect('carrinho.php');
         }
+        $product = productById($productId);
+        if ($product === null) {
+            $_SESSION['flash'] = 'Este produto não existe mais no catálogo.';
+            redirect('carrinho.php');
+        }
+        if ($quantity > (int) $product['stock']) {
+            $_SESSION['flash'] = 'Temos apenas ' . (int) $product['stock'] . ' unidade(s) de '
+                . $product['name'] . ' em estoque.';
+            redirect('carrinho.php');
+        }
         $statement = db()->prepare('UPDATE cart_items SET quantity = :quantity WHERE user_id = :user_id AND product_id = :product_id');
         $statement->execute([':quantity' => $quantity, ':user_id' => $userId, ':product_id' => $productId]);
     } else {

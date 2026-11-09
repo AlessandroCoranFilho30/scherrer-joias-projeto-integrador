@@ -15,7 +15,12 @@ if (requestMethod() === 'POST') {
     $statement->execute([':email' => $email]);
     $user = $statement->fetch();
 
-    if ($user === false || !password_verify($password, $user['password_hash'])) {
+    if ($user === false) {
+        // Verifica contra um hash fixo para que contas inexistentes tenham
+        // tempo de resposta parecido e não possam ser enumeradas.
+        password_verify($password, DUMMY_PASSWORD_HASH);
+        $error = 'E-mail ou senha incorretos.';
+    } elseif (!password_verify($password, $user['password_hash'])) {
         $error = 'E-mail ou senha incorretos.';
     } else {
         session_regenerate_id(true);

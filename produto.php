@@ -11,6 +11,7 @@ if ($product === null) {
     exit;
 }
 
+$stock = (int) $product['stock'];
 $error = null;
 if (requestMethod() === 'POST') {
     verifyCsrf();
@@ -22,6 +23,10 @@ if (requestMethod() === 'POST') {
     $quantity = filter_input(INPUT_POST, 'quantidade', FILTER_VALIDATE_INT);
     if ($quantity === false || $quantity === null || $quantity < 1 || $quantity > 20) {
         $error = 'Selecione uma quantidade entre 1 e 20.';
+    } elseif ($quantity > $stock) {
+        $error = $stock === 0
+            ? 'Este produto está esgotado.'
+            : 'Temos apenas ' . $stock . ' unidade(s) em estoque.';
     } else {
         $statement = db()->prepare(
             'INSERT INTO cart_items (user_id, product_id, quantity)
@@ -43,17 +48,26 @@ renderHeader($product['name']);
 <section class="product-detail">
     <img src="<?= e($product['image']) ?>" alt="<?= e($product['name']) ?>">
     <div>
-        <p class="eyebrow"><?= e(ucfirst($product['category'])) ?></p>
+        <p class="eyebrow"><?= e(categoryLabel($product['category'])) ?></p>
         <h1><?= e($product['name']) ?></h1>
         <p class="price price-large"><?= money((int) $product['price_cents']) ?></p>
         <p><?= e($product['description']) ?></p>
+        <?php if ($stock === 0): ?>
+            <p class="stock-note badge-out">Produto esgotado no momento.</p>
+        <?php elseif ($stock <= 5): ?>
+            <p class="stock-note">Últimas unidades: <?= $stock ?> em estoque.</p>
+        <?php else: ?>
+            <p class="stock-note">Disponível: <?= $stock ?> unidades em estoque.</p>
+        <?php endif; ?>
         <?php if ($error !== null): ?><p class="error" role="alert"><?= e($error) ?></p><?php endif; ?>
-        <form method="post" class="add-to-cart">
-            <input type="hidden" name="csrf_token" value="<?= e(csrfToken()) ?>">
-            <label for="quantidade">Quantidade</label>
-            <input id="quantidade" type="number" name="quantidade" min="1" max="20" value="1" required>
-            <button class="button" type="submit">Adicionar ao carrinho</button>
-        </form>
+        <?php if ($stock > 0): ?>
+            <form method="post" class="add-to-cart">
+                <input type="hidden" name="csrf_token" value="<?= e(csrfToken()) ?>">
+                <label for="quantidade">Quantidade</label>
+                <input id="quantidade" type="number" name="quantidade" min="1" max="<?= min(20, $stock) ?>" value="1" required>
+                <button class="button" type="submit">Adicionar ao carrinho</button>
+            </form>
+        <?php endif; ?>
         <a href="catalogo.php?categoria=<?= e($product['category']) ?>">Voltar à coleção</a>
     </div>
 </section>

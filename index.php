@@ -2,12 +2,7 @@
 require __DIR__ . '/includes/app.php';
 
 $featured = db()->query('SELECT * FROM products ORDER BY category, name')->fetchAll();
-$categories = [
-    'aneis' => 'Anéis',
-    'brincos' => 'Brincos',
-    'pulseiras' => 'Pulseiras',
-    'chokers' => 'Colares e chokers',
-];
+$categories = CATEGORIES;
 
 renderHeader('Joias para todos os momentos');
 ?>
