@@ -15,7 +15,13 @@ Na pasta do projeto, inicie o servidor embutido do PHP:
 php -S localhost:8000
 ```
 
-Abra `http://localhost:8000` no navegador. O banco SQLite é criado automaticamente em `data/loja.sqlite` na primeira visita; a conta e a senha ficam armazenadas com hash. Não há usuário de demonstração predefinido: crie uma conta pela opção **Criar conta**.
+Se o PowerShell não reconhecer `php`, use o executável do XAMPP (se instalado no caminho padrão):
+
+```powershell
+& 'C:\xampp\php\php.exe' -S localhost:8000
+```
+
+Mantenha o servidor em execução e abra `http://localhost:8000` no navegador. Não execute páginas como `php entrar.php`: a autenticação depende de uma requisição HTTP, sessões e cookies do navegador. O banco SQLite é criado automaticamente em `data/loja.sqlite` na primeira visita; a conta e a senha ficam armazenadas com hash. Não há usuário de demonstração predefinido: crie uma conta pela opção **Criar conta**.
 
 ## Funcionalidades
 

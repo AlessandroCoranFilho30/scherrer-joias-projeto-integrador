@@ -3,7 +3,7 @@ require __DIR__ . '/includes/app.php';
 requireLogin();
 
 $userId = (int) currentUser()['id'];
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (requestMethod() === 'POST') {
     verifyCsrf();
     $productId = postString('produto_id');
     $action = postString('acao');
@@ -18,6 +18,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         $statement = db()->prepare('UPDATE cart_items SET quantity = :quantity WHERE user_id = :user_id AND product_id = :product_id');
         $statement->execute([':quantity' => $quantity, ':user_id' => $userId, ':product_id' => $productId]);
+    } else {
+        http_response_code(400);
+        exit('Ação inválida.');
     }
     $_SESSION['flash'] = 'Carrinho atualizado.';
     redirect('carrinho.php');

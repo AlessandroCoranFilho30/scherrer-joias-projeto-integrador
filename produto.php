@@ -12,7 +12,7 @@ if ($product === null) {
 }
 
 $error = null;
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (requestMethod() === 'POST') {
     verifyCsrf();
     if (currentUser() === null) {
         $_SESSION['flash'] = 'Entre na sua conta para adicionar produtos ao carrinho.';

@@ -112,6 +112,12 @@ function postString(string $key): string
     return is_string($value) ? $value : '';
 }
 
+function requestMethod(): string
+{
+    $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
+    return is_string($method) ? strtoupper($method) : 'GET';
+}
+
 function money(int $cents): string
 {
     return 'R$ ' . number_format($cents / 100, 2, ',', '.');
@@ -262,6 +268,25 @@ function renderFooter(): void
     ?>
     </main>
     <footer class="site-footer">
+        <div class="footer-badges">
+            <section aria-labelledby="payment-title">
+                <h2 id="payment-title">Formas de pagamento (ilustrativas)</h2>
+                <div class="footer-badge-list">
+                    <img src="img/visa.png" alt="Visa" width="60" height="40">
+                    <img src="img/mastercard.svg" alt="Mastercard" width="60" height="40">
+                    <img src="img/elo.png" alt="Elo" width="60" height="40">
+                    <img src="img/pix.webp" alt="Pix" width="60" height="40">
+                </div>
+            </section>
+            <section aria-labelledby="security-title">
+                <h2 id="security-title">Selos e canais informativos</h2>
+                <div class="footer-badge-list">
+                    <img class="footer-security-badge" src="img/reclameaqui.jpg" alt="Reclame Aqui" width="60" height="60">
+                    <img class="footer-security-badge" src="img/alphassl.jpg" alt="Alpha SSL" width="60" height="60">
+                    <img class="footer-security-badge" src="img/google.jpg" alt="Google" width="60" height="60">
+                </div>
+            </section>
+        </div>
         <p>Scherrer Joias · Loja demonstrativa para fins educativos.</p>
         <p>As compras deste site são fictícias e não geram cobrança.</p>
     </footer>

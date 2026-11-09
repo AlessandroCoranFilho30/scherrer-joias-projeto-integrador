@@ -59,7 +59,7 @@ renderHeader('Joias para todos os momentos');
                     <h3><?= e($product['name']) ?></h3>
                 </a>
                 <p class="price"><?= money((int) $product['price_cents']) ?></p>
-                <a class="button button-outline" href="produto.php?id=<?= e($product['id']) ?>">Ver produto</a>
+                <a class="button button-outline" href="produto.php?id=<?= e($product['id']) ?>">Comprar produto</a>
             </article>
         <?php endforeach; ?>
     </div>

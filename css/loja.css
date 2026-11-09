@@ -78,7 +78,12 @@ button, .button { cursor: pointer; }
 .empty-state { margin: 20px 0; background: var(--sand-light); }
 .disclaimer { background: var(--sand-light); color: var(--muted); font-size: .9rem; }
 .link-button { padding: 0; border: 0; color: #574333; background: transparent; text-decoration: underline; }
-.site-footer { padding: 24px; background: var(--sand-light); text-align: center; color: var(--muted); font-size: .9rem; }
+.site-footer { padding: 28px max(5vw, 20px); background: var(--sand-light); text-align: center; color: var(--muted); font-size: .9rem; }
+.footer-badges { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; max-width: 900px; margin: 0 auto 24px; }
+.footer-badges h2 { margin: 0 0 12px; color: var(--ink); font-size: .85rem; font-weight: 600; }
+.footer-badge-list { display: flex; min-height: 60px; align-items: center; justify-content: center; gap: 16px; flex-wrap: wrap; }
+.footer-badge-list img { width: 60px; height: 40px; object-fit: contain; }
+.footer-badge-list .footer-security-badge { height: 60px; border-radius: 50%; }
 .site-footer p { margin: 4px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
 
@@ -93,6 +98,7 @@ button, .button { cursor: pointer; }
     .cart-item { grid-template-columns: 72px 1fr; }
     .cart-item img { width: 72px; height: 72px; }
     .quantity-form, .cart-item > .price, .cart-item > form:last-child { grid-column: 2; }
+    .footer-badges { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 420px) {

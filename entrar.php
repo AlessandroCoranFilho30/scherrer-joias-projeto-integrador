@@ -7,7 +7,7 @@ if (currentUser() !== null) {
 
 $returnTo = safeReturnPath($_GET['retorno'] ?? $_POST['retorno'] ?? null);
 $error = null;
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (requestMethod() === 'POST') {
     verifyCsrf();
     $email = strtolower(trim(postString('email')));
     $password = postString('senha');

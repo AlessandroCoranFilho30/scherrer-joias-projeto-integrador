@@ -1,7 +1,7 @@
 <?php
 require __DIR__ . '/includes/app.php';
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+if (requestMethod() !== 'POST') {
     http_response_code(405);
     header('Allow: POST');
     exit('Método não permitido.');

@@ -8,7 +8,7 @@ if (currentUser() !== null) {
 $error = null;
 $name = '';
 $email = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (requestMethod() === 'POST') {
     verifyCsrf();
     $name = trim(postString('nome'));
     $email = strtolower(trim(postString('email')));

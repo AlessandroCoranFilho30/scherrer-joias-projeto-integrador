@@ -10,7 +10,7 @@ if ($items === []) {
 }
 
 $error = null;
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if (requestMethod() === 'POST') {
     verifyCsrf();
     $fulfillment = postString('entrega');
     $address = trim(postString('endereco'));

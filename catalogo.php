@@ -51,7 +51,7 @@ renderHeader($title);
                         <h2><?= e($product['name']) ?></h2>
                     </a>
                     <p class="price"><?= money((int) $product['price_cents']) ?></p>
-                    <a class="button button-outline" href="produto.php?id=<?= e($product['id']) ?>">Ver produto</a>
+                    <a class="button button-outline" href="produto.php?id=<?= e($product['id']) ?>">Comprar produto</a>
                 </article>
             <?php endforeach; ?>
         </div>
