@@ -83,10 +83,6 @@ Se o PowerShell não reconhecer `php`, use o executável do XAMPP (se instalado 
 
 Mantenha o servidor em execução e abra `http://localhost:8000` no navegador. Não execute páginas como `php entrar.php`: a autenticação depende de uma requisição HTTP, sessões e cookies do navegador. O banco SQLite é criado automaticamente em `data/loja.sqlite` na primeira visita; a conta e a senha ficam armazenadas com hash. Não há usuário de demonstração predefinido: crie uma conta pela opção **Criar conta**.
 
-### Painel administrativo
-
-Acesso a `admin.php` (produtos) e `admin-mensagens.php` (mensagens de clientes) é liberado automaticamente para contas cadastradas com um dos e-mails da constante `ADMIN_EMAILS`, em `includes/app.php` (por padrão, `alessandro.coran@aluno.cps.sp.gov.br`). Para incluir outros atendentes, adicione os e-mails em minúsculas à lista.
-
 ---
 
 <div align="start">
