@@ -15,6 +15,9 @@ const CATEGORIES = [
     'chokers' => 'Colares e chokers',
 ];
 
+// E-mails com acesso ao painel administrativo (admin.php e admin-mensagens.php).
+const ADMIN_EMAILS = ['alessandro.coran@aluno.cps.sp.gov.br'];
+
 // Hash fixo usado no login apenas para equalizar o tempo de resposta
 // quando o e-mail informado não existe, evitando enumeração de contas.
 const DUMMY_PASSWORD_HASH = '$2y$12$CSl80ZCYo4tRL7rc9OXWhOh/RHsxCp0niWPJwg3lZBxMDybJN3gXu';
@@ -22,6 +25,12 @@ const DUMMY_PASSWORD_HASH = '$2y$12$CSl80ZCYo4tRL7rc9OXWhOh/RHsxCp0niWPJwg3lZBxM
 function categoryLabel(string $category): string
 {
     return CATEGORIES[$category] ?? ucfirst($category);
+}
+
+function isAdmin(): bool
+{
+    $user = currentUser();
+    return $user !== null && in_array(strtolower((string) $user['email']), ADMIN_EMAILS, true);
 }
 
 function db(): PDO
@@ -87,6 +96,13 @@ function initializeDatabase(PDO $connection): void
             product_name TEXT NOT NULL,
             unit_price_cents INTEGER NOT NULL,
             quantity INTEGER NOT NULL
+        );
+        CREATE TABLE IF NOT EXISTS contact_messages (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+            sender TEXT NOT NULL CHECK (sender IN (\'cliente\', \'atendente\')),
+            body TEXT NOT NULL CHECK (length(body) BETWEEN 1 AND 2000),
+            created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
         );'
     );
 
@@ -203,7 +219,7 @@ function safeReturnPath(mixed $path): string
         return 'index.php';
     }
 
-    $allowed = ['index.php', 'carrinho.php', 'catalogo.php', 'produto.php', 'historico.php'];
+    $allowed = ['index.php', 'carrinho.php', 'catalogo.php', 'produto.php', 'historico.php', 'contato.php'];
     $script = ltrim($parts['path'] ?? '', '/');
     if (!in_array($script, $allowed, true)) {
         return 'index.php';
@@ -264,6 +280,10 @@ function renderHeader(string $title): void
                 <span>Olá, <?= e((string) $user['name']) ?></span>
                 <a href="carrinho.php">Carrinho</a>
                 <a href="historico.php">Minhas compras</a>
+                <a href="contato.php">Contato</a>
+                <?php if (isAdmin()): ?>
+                    <a href="admin.php">Administração</a>
+                <?php endif; ?>
                 <form action="sair.php" method="post">
                     <input type="hidden" name="csrf_token" value="<?= e(csrfToken()) ?>">
                     <button class="link-button" type="submit">Sair</button>
@@ -272,6 +292,7 @@ function renderHeader(string $title): void
                 <a href="entrar.php">Entrar</a>
                 <a href="cadastrar.php">Criar conta</a>
                 <a href="carrinho.php">Carrinho</a>
+                <a href="contato.php">Contato</a>
             <?php endif; ?>
         </nav>
     </header>
