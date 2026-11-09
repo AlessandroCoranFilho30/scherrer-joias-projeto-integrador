@@ -1,0 +1,5 @@
+# Impede o download dos arquivos do banco de dados SQLite pela web.
+# O servidor embutido do PHP ignora .htaccess, mas ele roda apenas em localhost.
+<FilesMatch "\.(sqlite|sqlite-wal|sqlite-shm)$">
+    Require all denied
+</FilesMatch>

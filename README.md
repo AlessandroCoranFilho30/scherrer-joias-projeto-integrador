@@ -83,6 +83,18 @@ Se o PowerShell não reconhecer `php`, use o executável do XAMPP (se instalado 
 
 Mantenha o servidor em execução e abra `http://localhost:8000` no navegador. Não execute páginas como `php entrar.php`: a autenticação depende de uma requisição HTTP, sessões e cookies do navegador. O banco SQLite é criado automaticamente em `data/loja.sqlite` na primeira visita; a conta e a senha ficam armazenadas com hash. Não há usuário de demonstração predefinido: crie uma conta pela opção **Criar conta**.
 
+## Publicar online (InfinityFree, grátis)
+
+A Vercel, Netlify e GitHub Pages não servem para PHP com SQLite (serverless/estático). A hospedagem gratuita [InfinityFree](https://infinityfree.com) roda o projeto sem alterações, pois os drivers `pdo_sqlite` já vêm habilitados no PHP:
+
+1. Crie uma conta em infinityfree.com e um subdomínio gratuito (ex.: `scherrerjoias.infinityfreeapp.com`).
+2. No painel de controle, em **PHP Configuration**, selecione a versão mais nova disponível (o projeto exige PHP 8.1 ou superior).
+3. Envie todos os arquivos do projeto para a pasta `htdocs/` (pelo gerenciador de arquivos online ou por FTP: host `ftpupload.net`, porta 21). O banco SQLite é criado automaticamente em `data/` na primeira visita; o `.htaccess` na raiz impede o download do banco pela web.
+4. Ative o SSL gratuito no painel para acessar por HTTPS.
+5. Acesse o site e crie as contas necessárias; o painel administrativo fica liberado conforme a configuração de `ADMIN_EMAILS` em `includes/app.php`.
+
+Para atualizar o site, envie apenas os arquivos alterados por FTP. Se a escrita no SQLite apresentar instabilidade nessa hospedagem, o caminho mais robusto é migrar o banco para o MySQL que eles fornecem.
+
 ---
 
 <div align="start">
